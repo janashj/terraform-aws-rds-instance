@@ -1,9 +1,5 @@
-# Terraform-14
-## Build RDS Instance
-### Please copy and paste below code
-```
 module "dbname" {
-  source = "janashj/aws/rds-instance-module"
+  source = "../"
   region = "us-east-2"
   subnet_ids = [
     "subnet-08b89c0bd842fd930",
@@ -17,9 +13,12 @@ module "dbname" {
   engine_version      = "5.7"
   instance_class      = "db.t2.micro"
   username            = "foo"
+  password            = "foobarbaz"
   publicly_accessible = true
 
   db_access = [
+    "50.194.68.230/32",
+    "50.194.68.231/32",
     "0.0.0.0/0"
     ]
 }
@@ -39,6 +38,3 @@ output "DB_name" {
 output "endpoint" {
   value = module.dbname.Endpoint
 }
-```
-
-### Password is created in ssm
