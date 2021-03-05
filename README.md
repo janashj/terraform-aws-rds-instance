@@ -42,3 +42,8 @@ output "endpoint" {
 ```
 
 ### Password is created in ssm
+
+## Please run
+## terraform init
+
+## terraform apply
