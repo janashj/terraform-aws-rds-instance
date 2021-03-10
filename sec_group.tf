@@ -1,5 +1,5 @@
 resource "aws_security_group" "db" {
-  name        = "db"
+  name        = "db_sql"
   description = "Allow mysql traffic"
   ingress {
     description = "Allow mysql"
@@ -16,4 +16,4 @@ resource "aws_security_group" "db" {
   }
 }
 # for DB, special security group should be created, and allow only for specific cidr blocks
-  
+

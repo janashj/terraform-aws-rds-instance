@@ -1,5 +1,5 @@
 resource "random_password" "password" {
-    length           = 16
+  length           = 16
   upper            = true
   lower            = true
   number           = true
@@ -10,8 +10,9 @@ resource "random_password" "password" {
   min_special      = 1
   override_special = "_%@"
 }
-resource "aws_ssm_parameter" "foo" {
-  name = "dbpass"
-  type = "SecureString"
+resource "aws_ssm_parameter" "rdsik" {
+  name  = "dbpass"
+  type  = "SecureString"
   value = random_password.password.result
+  overwrite = true
 }
